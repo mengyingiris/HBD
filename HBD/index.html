@@ -41,21 +41,21 @@
 });
        </script>
 
-     <a-scene vr-mode-ui="enabled: false">
+     <a-scene embedded arjs='sourceType: webcam;' vr-mode-ui="enabled: false">
        <a-assets>
   <a-asset-item id="3-gltf" src="rose4.glb"></a-asset-item>
        </a-assets>
-      <a-entity  id="3" gltf-model="#3-gltf" position="3.27543 -45.55319 -105.5072" scale="10 10 10"
-                animation="property: rotation; to: 0 360 0; dur: 9000; easing: linear; loop: true; dir: alternate"
+      <a-entity  id="3" gltf-model="#3-gltf" position="3.27543 -45.55319 -105.5072" scale="10 10 10"  rotation="0 40 40"
+                animation="property: rotation; to: 0 190 10; dur: 9000; easing: linear; loop: true; dir: alternate"
 lookat = "[camera]" >
        </a-entity>
 
 <a-entity cursor-listener
       id="listener1"
- geometry="primitive: sphere; radius: 0.4"
+ geometry="primitive: sphere; radius: 0.3"
           material="src: 1.JPG"
           rotation="0 0 0"
-          position="2 5.3 -4"
+          position="2 5.3 -7"
           scale="1 1 1"
 animation="property: rotation; to: 0 360 360; dur: 9000; easing: linear; loop: true; dir: alternate"
 lookat = "[camera]"
@@ -87,3 +87,4 @@ lookat = "[camera]"
 
 
 </html>
+
