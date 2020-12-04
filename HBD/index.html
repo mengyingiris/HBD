@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Spatial Poetics</title>
+    <meta name="description" content="spatial poetics">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+
+
+
+  </head>
+  <body>
+     <script>
+      AFRAME.registerComponent('cursor-listener', {
+        init: function () {
+        var el = this.el;
+        el.addEventListener('mouseenter', function (evt) {
+           // el.setAttribute('material', 'color: blue')
+
+            console.log('I was clicked at: ', evt.detail.intersection.point);
+          console.log(evt.target.id)
+           if(evt.target.id == "listener1") {
+          //  alert("listener1")
+            document.location.href="1.html"
+            el.setAttribute('text-geometry', 'value: burst like a star; size: 0.3');
+
+          }
+
+          if(evt.target.id == "listener2") {
+          //  alert("listener2")
+             document.location.href="leaf2.html"
+            el.setAttribute('text-geometry', 'value: bursts like sand; size: 0.3');
+
+
+          }
+              });
+  }
+});
+       </script>
+
+     <a-scene vr-mode-ui="enabled: false">
+       <a-assets>
+  <a-asset-item id="3-gltf" src="rose4.glb"></a-asset-item>
+       </a-assets>
+      <a-entity  id="3" gltf-model="#3-gltf" position="3.27543 -45.55319 -105.5072" scale="10 10 10"
+                animation="property: rotation; to: 0 360 0; dur: 9000; easing: linear; loop: true; dir: alternate"
+lookat = "[camera]" >
+       </a-entity>
+
+<a-entity cursor-listener
+      id="listener1"
+ geometry="primitive: sphere; radius: 0.4"
+          material="src: 1.JPG"
+          rotation="0 0 0"
+          position="2 5.3 -4"
+          scale="1 1 1"
+animation="property: rotation; to: 0 360 360; dur: 9000; easing: linear; loop: true; dir: alternate"
+lookat = "[camera]"
+
+     >
+  </a-entity>
+
+
+  </a-entity>
+       <a-entity light="type: ambient; color: #fdfcff"></a-entity>
+              <a-camera>
+        <!--
+  <a-entity cursor="fuse: true; fuseTimeout: 1500"
+            position="0 0 -1"
+            geometry="primitive: torusKnot; p: 4; q:3; radius:2"
+            material="color: pink"
+                >
+  </a-entity>-->
+
+  <a-entity cursor="fuse: true; fuseTimeout: 52500"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+            material="color: black; shader: flat">
+  </a-entity>
+
+</a-camera>
+    </a-scene>
+  </body>
+
+
+</html>
